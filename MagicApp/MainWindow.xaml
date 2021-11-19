@@ -6,12 +6,33 @@
         xmlns:local="clr-namespace:MagicApp"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <StackPanel>
-        <Button Content="Start Work" HorizontalAlignment="Center" VerticalAlignment="Center" Click="StartWork_Click"></Button>
-        <Button Content="Start Work1" HorizontalAlignment="Center" VerticalAlignment="Center" Click="StartWork1_Click"></Button>
-        <Button Content="Start Work2" HorizontalAlignment="Center" VerticalAlignment="Center" Click="StartWork2_Click"></Button>
-        <Button Content="Start Work3" HorizontalAlignment="Center" VerticalAlignment="Center" Click="StartWork3_Click"></Button>
-        <Button Content="Start Work sequentially" HorizontalAlignment="Center" VerticalAlignment="Center" Click="StartWorkSequential_Click"></Button>
-        <Button Content="Start Work sequentially" HorizontalAlignment="Center" VerticalAlignment="Center" Click="StartWorkSequential2_Click"></Button>
-    </StackPanel>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0" HorizontalAlignment="Right">
+      
+            <Button Content="Task run" Click="TaskRun_Click"></Button>
+
+            <Button Content="When all" Click="StartWorkWhenAll_Click"></Button>
+            <Button Content="When all array first" Click="StartWorkWhenAllArray_Click"></Button>
+
+            <Button Content="Start Work fire and forget" Click="StartWorkFireAndForget_Click"></Button>
+
+            <Button Content="Start Work sequentially" Click="StartWorkSequential_Click"></Button>
+            <Button Content="Start Work sequentially multiple threads" Click="StartWorkSequential2_Click"></Button>
+        </StackPanel>
+        <StackPanel Grid.Column="1" HorizontalAlignment="Left">
+            <Button Content="Task run locked" Click="TaskRunLocked_Click"></Button>
+
+            <Button Content="When all locked" Click="StartWorkWhenAllLocked_Click"></Button>
+            <Button Content="When all array locked" Click="StartWorkWhenAllLockedArray_Click"></Button>
+
+            <Button Content="Start Work fire and forget locked" Click="StartWorkFireAndForgetLocked_Click"></Button>
+
+            <Button Content="Start Work sequentially locked" Click="StartWorkSequentialLocked_Click"></Button>
+            <Button Content="Start Work sequentially multiple threads locked" Click="StartWorkSequential2Locked_Click"></Button>
+        </StackPanel>
+    </Grid>
 </Window>

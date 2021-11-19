@@ -13,7 +13,7 @@ namespace Api
         public int LastThreadId { get; set; } = 0;
         private object _lock = new object();
 
-        public Task LongRunningTask(int nth)
+        public Task LongRunningLockedTask(int nth)
         {
             lock (_lock)
             {
@@ -25,6 +25,19 @@ namespace Api
 
                 LastThreadId = Thread.CurrentThread.ManagedThreadId;
             }
+
+            return Task.CompletedTask;
+        }
+
+        public Task LongRunningTask(int nth)
+        {
+            Debug.WriteLine($"{Thread.CurrentThread.ManagedThreadId} Starting long running task...");
+
+            var answer = FindPrimeNumber(nth);
+
+            Debug.WriteLine($"{Thread.CurrentThread.ManagedThreadId} Finishing long running task... Answer: {answer}");
+
+            LastThreadId = Thread.CurrentThread.ManagedThreadId;
 
             return Task.CompletedTask;
         }
